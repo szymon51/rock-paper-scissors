@@ -10,7 +10,10 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-
+    let userChoice = prompt("Hello!", "scissors");
+    userChoice = userChoice.toLowerCase();
+    if(userChoice === computerSelection) console.log("you won!");
+    else console.log("you lost"); 
 }
 
 const playerSelection = "rock";
