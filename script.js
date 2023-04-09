@@ -11,7 +11,6 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
     let message = ""; 
-    console.log(`${playerSelection}, ${computerSelection}`); 
     if (playerSelection === "scissors" && computerSelection === "paper") {
         message = `You won! ${playerSelection} beats ${computerSelection}`;
         timesUserWon++;
@@ -21,7 +20,7 @@ function playRound(playerSelection, computerSelection) {
         timesUserWon++;
     }
     else if (playerSelection === "paper" && computerSelection === "rock") {
-        message = `You lost! ${computerSelection} beats ${playerSelection}`;
+        message = `You won! ${computerSelection} beats ${playerSelection}`;
         timesUserWon++;
     }
     else if (computerSelection === "scissors" && playerSelection === "paper") {
@@ -33,18 +32,24 @@ function playRound(playerSelection, computerSelection) {
     else if (computerSelection === "paper" && playerSelection === "rock") {
         message = `You lost! ${computerSelection} beats ${playerSelection}`;
     }
-    else message = "It is a tie!";
+    else if (computerSelection === playerSelection) {
+    message = "It is a tie!";
+    } else message = "something went wrong!";
     numberOfGamesPlayed++;
     return message;
 }
 
 function game() {
-    let numberOfGamesPlayed = 0;
-    let timesUserWon = 0;
     let playerSelection = prompt("Please enter you choice").toLowerCase();
-    const computerSelection = getComputerChoice();
+    const computerSelection = "rock";
     console.log(playRound(playerSelection, computerSelection));
+    if (timesUserWon >= 3 && numberOfGamesPlayed === 5) alert("You won the whole game");
 }
 
-game();
+let numberOfGamesPlayed = 0;
+let timesUserWon = 0;
+
+for (let i = 0; i < 5; i++) {
+    game();
+}
 
