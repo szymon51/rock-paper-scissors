@@ -14,12 +14,15 @@ function playRound(playerSelection, computerSelection) {
     console.log(`${playerSelection}, ${computerSelection}`); 
     if (playerSelection === "scissors" && computerSelection === "paper") {
         message = `You won! ${playerSelection} beats ${computerSelection}`;
+        timesUserWon++;
     }
     else if (playerSelection === "rock" && computerSelection === "scissors") {
         message = `You won! ${playerSelection} beats ${computerSelection}`;
+        timesUserWon++;
     }
     else if (playerSelection === "paper" && computerSelection === "rock") {
         message = `You lost! ${computerSelection} beats ${playerSelection}`;
+        timesUserWon++;
     }
     else if (computerSelection === "scissors" && playerSelection === "paper") {
         message = `You lost! ${computerSelection} beats ${playerSelection}`;
@@ -31,6 +34,7 @@ function playRound(playerSelection, computerSelection) {
         message = `You lost! ${computerSelection} beats ${playerSelection}`;
     }
     else message = "It is a tie!";
+    numberOfGamesPlayed++;
     return message;
 }
 
