@@ -8,3 +8,11 @@ function getComputerChoice() {
     else console.log("There was an error generating the computer choice");
     return computerChoice;
 }
+
+function playRound(playerSelection, computerSelection) {
+
+}
+
+const playerSelection = "rock";
+const computerSelection = getComputerChoice();
+console.log(playRound(playerSelection, computerSelection));
